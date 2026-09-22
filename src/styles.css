@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "IBM Plex Sans Arabic", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-bg: #f3efe6;
+  --color-surface: #fbf8f1;
+  --color-elevated: #ffffff;
+  --color-fg: #1c1917;
+  --color-muted: #6f675c;
+  --color-subtle: #9a9186;
+  --color-border: #e4dccf;
+  --color-ring: #1a365d;
+  --color-primary: #1a365d;
+  --color-primary-fg: #f7f3ea;
+  --color-accent: #2c5282;
+  --color-ok: #3f6212;
+  --color-ok-bg: #ecfccb;
+  --color-warn: #9a3412;
+  --color-warn-bg: #ffedd5;
+  --color-danger: #9f1239;
+  --color-danger-bg: #ffe4e6;
+  --color-info: #1e3a5f;
+  --color-info-bg: #e8eef6;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+
+  --shadow-card:
+    0 0 0 1px rgba(28, 25, 23, 0.06),
+    0 1px 2px -1px rgba(28, 25, 23, 0.06),
+    0 8px 24px -12px rgba(28, 25, 23, 0.12);
+  --shadow-card-hover:
+    0 0 0 1px rgba(28, 25, 23, 0.08),
+    0 1px 2px -1px rgba(28, 25, 23, 0.08),
+    0 12px 28px -12px rgba(28, 25, 23, 0.16);
+}
+
+@layer base {
+  html {
+    direction: rtl;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    direction: rtl;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  table {
+    direction: rtl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #job-slip,
+  #job-slip * {
+    visibility: visible;
+  }
+  #job-slip {
+    position: absolute;
+    inset: 0;
+    background: white;
+  }
+}
